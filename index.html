@@ -63,10 +63,10 @@
           }
           //meaning it is sorted decreasingly
           else{
-             //changing it back to unsorted
+             //changing it back to increasing order
             for (var i = 0; i < 6; i++) {
-              document.getElementById(i.toString()).innerHTML = values[i];
-              curr = values;
+              document.getElementById(i.toString()).innerHTML = inc[i];
+              curr = inc;
               FilterMax();
               ThresholdMax();
            }
