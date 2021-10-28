@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Spiridonov Polytechnic LLC</title>
+  </head>
+  <body>
+       <label for="FM">Filter Max</label>
+       <input type="number" id="FM" name="FM" onchange = "FilterMax()"><br>
+       <label for="FM">Threshold Max</label>
+       <input type="number" id="TM" name="TM" onchange = "ThresholdMax()"><br><br>
+       
+       <table id = "Values">
+        <tr>
+          <th onclick="sort()">Value</th>
+        </tr>
+        <tr>
+          <td id = "0">7</td>
+        </tr>
+        <tr>
+          <td id = "1">12</td>
+        </tr>
+        <tr>
+            <td id = "2">18</td>
+          </tr>
+          <tr>
+            <td id = "3">20</td>
+          </tr>
+          <tr>
+            <td id = "4">3</td>
+          </tr>
+          <tr>
+            <td id = "5">88</td>
+          </tr>
+      </table>
+
+       <script >
+        var values = [7, 12, 18,20,3,88];
+        
+        function sort(){
+            
+        }
+
+        function FilterMax(){
+            for (var i = 0; i < 6; i++) {
+                var temp1 = parseInt(document.getElementById("FM").value);
+                var temp2 = values[i];
+                if(temp2 > temp1){
+                    document.getElementById(i.toString()).style.display = "none";
+                }else{
+                    document.getElementById(i.toString()).style.display = "block";
+                }
+            }
+        }
+
+        function ThresholdMax(){
+            for (var i = 0; i < 6; i++) {
+                var temp1 = parseInt(document.getElementById("TM").value);
+                var temp2 = values[i];
+                if(temp2 > temp1){
+                    document.getElementById(i.toString()).style.color = "red";
+                }else{
+                    document.getElementById(i.toString()).style.color = "black";
+                }
+            }
+        }
+    
+    </script>
+
+  </body>
+</html>
