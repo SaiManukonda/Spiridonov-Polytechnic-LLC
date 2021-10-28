@@ -36,15 +36,47 @@
 
        <script >
         var values = [7, 12, 18,20,3,88];
-        
+        var inc = [3,7,12,18,20,88];
+        var dec = [88,20,18,12,7,3];
+        var curr = values;
+
         function sort(){
-            
+          //meaning it is currently unsorted
+          if(curr[0] === 7){
+            //changing it to increasing order
+            for (var i = 0; i < 6; i++) {
+              document.getElementById(i.toString()).innerHTML = inc[i];
+              curr = inc;
+              FilterMax();
+              ThresholdMax();
+           }
+          }
+          //meaning it is sorted increasingly
+          else if(curr[0] === 3){
+            //changing it to decreasing order
+            for (var i = 0; i < 6; i++) {
+              document.getElementById(i.toString()).innerHTML = dec[i];
+              curr = dec;
+              FilterMax();
+              ThresholdMax();
+           }
+          }
+          //meaning it is sorted decreasingly
+          else{
+             //changing it back to unsorted
+            for (var i = 0; i < 6; i++) {
+              document.getElementById(i.toString()).innerHTML = values[i];
+              curr = values;
+              FilterMax();
+              ThresholdMax();
+           }
+          }
         }
 
         function FilterMax(){
             for (var i = 0; i < 6; i++) {
                 var temp1 = parseInt(document.getElementById("FM").value);
-                var temp2 = values[i];
+                var temp2 = curr[i];
                 if(temp2 > temp1){
                     document.getElementById(i.toString()).style.display = "none";
                 }else{
@@ -56,7 +88,7 @@
         function ThresholdMax(){
             for (var i = 0; i < 6; i++) {
                 var temp1 = parseInt(document.getElementById("TM").value);
-                var temp2 = values[i];
+                var temp2 = curr[i];
                 if(temp2 > temp1){
                     document.getElementById(i.toString()).style.color = "red";
                 }else{
